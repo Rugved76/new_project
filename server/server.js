@@ -4,7 +4,8 @@ import express from "express"
 import cors from "cors"
 
 const DB_URL = 'mongodb+srv://rugvedwagh02:rugved76@cluster0.qarh5qz.mongodb.net/?retryWrites=true&w=majority'
-const CLIENT_URL = "http://localhost:3000"
+const CLIENT_URL = "https://timepasss-dwgw.onrender.com"
+// const CLIENT_URL = "http://localhost:3000"
 const PORT = 4000
 
 const app = express();
