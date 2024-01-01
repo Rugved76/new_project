@@ -1,4 +1,4 @@
-import { userRouter } from "./routes/user.js"
+import { userRouter } from "./routes/userRoute.js"
 import mongoose from 'mongoose'
 import express from "express"
 import cors from "cors"

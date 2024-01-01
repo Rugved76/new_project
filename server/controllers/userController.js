@@ -1,12 +1,11 @@
-import { UserModel } from '../model/Users.js';
+import {UserModel} from '../models/users.js';
+// import { UserModel } from '../models/Users';
 import jwt from 'jsonwebtoken';
-import express from 'express';
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
 
 const secret = 'yetanothersecretkey';
-const router = express.Router();
 
-router.post('/signup', async (req, res) => {
+export const signup = async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -25,9 +24,9 @@ router.post('/signup', async (req, res) => {
         console.log(err);
         res.status(500).json({ message: 'Internal server error!' });
     }
-});
+}
 
-router.post('/login', async (req, res) => {
+export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const existinguser = await UserModel.findOne({ email });
@@ -50,7 +49,7 @@ router.post('/login', async (req, res) => {
         console.log(err);
         res.status(500).json({ message: 'Internal server error!' });
     }
-});
+}
 
 export const verifyToken = (req, res) => {
     const authHeader = req.headers.authorization;
@@ -70,11 +69,3 @@ export const verifyToken = (req, res) => {
         res.status(500).json({ message: 'Internal server error during token verification' });
     }
 };
-
-router.get('/', verifyToken, (req, res) => {
-    res.send('Server is up and running ...');
-});
-
-router.post('/', verifyToken); 
-
-export { router as userRouter };
