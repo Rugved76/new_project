@@ -6,7 +6,8 @@ import Pricing from './components/Pricing';
 import StickyFooter from './components/StickyFooter';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-export const url = `http://localhost:4000`
+// export const url = `http://localhost:4000`
+export const url = `https://justanotherbackend.onrender.com`
 
 function App() {
     return (
